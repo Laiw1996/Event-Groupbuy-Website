@@ -1,0 +1,24 @@
+[
+{
+  "model": "carts.cart",
+  "pk": 1,
+  "fields": {
+    "user": 2,
+    "total": "10.00",
+    "updated": "2019-08-05T23:10:16.815Z",
+    "timestamp": "2019-08-05T23:10:16.794Z",
+    "products": []
+  }
+},
+{
+  "model": "carts.cart",
+  "pk": 2,
+  "fields": {
+    "user": 3,
+    "total": "10.00",
+    "updated": "2019-08-05T23:34:47.808Z",
+    "timestamp": "2019-08-05T23:34:47.778Z",
+    "products": []
+  }
+}
+]

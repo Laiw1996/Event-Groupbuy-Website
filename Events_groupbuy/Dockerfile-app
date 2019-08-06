@@ -1,0 +1,20 @@
+FROM python:3.7
+WORKDIR /code
+ENV PYTHONUNBUFFERED=1
+COPY wait.sh /wait.sh
+RUN chmod +x /wait.sh
+COPY requirements.txt /tmp/
+RUN pip install -r /tmp/requirements.txt
+ADD ./ /code
+RUN chmod -R 777 media
+CMD /wait.sh db 5432 \
+  && python manage.py collectstatic --noinput \
+  && python manage.py makemigrations \
+  && python manage.py migrate \
+  && python manage.py loaddata initial_user.json \
+  && python manage.py loaddata initial_main.json \
+  && python manage.py loaddata initial_event.json \
+  && python manage.py loaddata initial_cart.json \
+  && python manage.py loaddata initial_billing.json \
+  && python manage.py loaddata initial_order.json \
+  && /usr/local/bin/uwsgi --ini /code/uwsgi.ini 

@@ -1,0 +1,56 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$0CjkP9JVBnup$L/BwmFJRELRvDzXmWtMAvxJ6YfRJzpMjyjvVo/xztVA=",
+    "last_login": "2019-08-05T23:08:50.462Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@sfu.ca",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2019-08-05T23:06:12.289Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$PYW6eUnrMLxV$FHRJ83cCj2/UradRMt3SUnfnCMlcl34OSC/g9EWLAM0=",
+    "last_login": "2019-08-05T23:10:12.186Z",
+    "is_superuser": false,
+    "username": "pikachu",
+    "first_name": "chu",
+    "last_name": "pika",
+    "email": "pikachu@sfu.ca",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-08-05T23:07:12.641Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$tmtIbKiUXBRK$qMYkdlYg4/woU0rhJwT6qzycx7NhU21BH44RxFHsvM0=",
+    "last_login": "2019-08-05T23:26:32.166Z",
+    "is_superuser": false,
+    "username": "laiw",
+    "first_name": "Lai",
+    "last_name": "Wei",
+    "email": "laiw@sfu.ca",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-08-05T23:26:21.147Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]

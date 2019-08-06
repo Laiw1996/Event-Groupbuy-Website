@@ -1,0 +1,21 @@
+#menu {
+	margin-left: 3em;
+	padding: 50px;
+}
+
+#individualEvents {
+	padding: 20px;
+}
+
+#events_details {
+	margin-left: 1em;
+}
+
+#essentialDetails {
+	font-size: 70%;
+	color: #696969;
+}
+
+#event_title {
+	color: black;
+}

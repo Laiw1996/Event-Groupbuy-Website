@@ -1,0 +1,60 @@
+{% extends 'main/nav.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" title="Q1" href="{% static 'events/eventList_style.css' %}" />
+
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }}">
+{{ message }}
+</div>
+{% endfor %}
+{% endif %}
+<ul id="menu">
+	{% if flag == 0 %}
+	<h2>Events I Joined: </h2>
+	{% else %}
+	<h2>Events I Started: </h2>
+	{% endif %}
+	
+	{% for event in AllEvents %}
+	<li class="media lic ulc" id="individualEvents">
+		<a href="/events/event_details/{{event.id}}">
+			<!-- <img src="{% static 'events/default_image.jpg' %}" class="rounded img-fluid" alt="..." width="307" height="240"> -->
+			<img src="{{ event.image_event.url }}" alt="User avatar" style="width:320px; height: 180px">
+		</a>
+		<div class="media-body" id = "events_details">
+	  		<h4 class="mt-0 mb-1"><a href="/events/event_details/{{event.id}}" id="event_title">{{event.title}}</a></h4>
+	  		<h6 id="essentialDetails">Location: {{event.location}}</h6>
+	  		
+        <h6 id="essentialDetails">Time: {{event.event_date}}</h6>
+	  		<h6 id="essentialDetails">CAD$ {{event.price}}</h6>
+        <a href="#" class="badge badge-info">{{event.event_type}}</a>
+	  			
+
+	  		<br>
+	  		<span class="badge badge-success">Current: {{event.current_attendants}}</span>
+	  		<span class="badge badge-secondary">Expected: {{event.expected_attendants}}</span>
+	  		<!-- <p>{{event.description}}</p> -->
+	  		<br>
+
+	  		{% if event.current_attendants ==  event.expected_attendants %}
+	  		<p><strong>Status: </strong>Complete, the event organizer will contact you through emails!</p>
+	  		{% elif event.event_date < now %}
+	  		<p><strong>Status: </strong>Expired, this event is no longer available.</p>
+	  		{% else %}
+	  		<p><strong>Status: </strong>Pending, waiting for more fellows to join...</p>
+	  		{% endif %}
+	  		
+
+	  		
+	  		{% if flag != 0 %}
+	  		<a class="label label-primary" href="/editpost/{{event.id}}" id='ref' >Edit</a >
+	  		 	{% endif %}
+
+		</div>
+	</li>
+	{% endfor %}
+</ul>
+
+{% endblock %}

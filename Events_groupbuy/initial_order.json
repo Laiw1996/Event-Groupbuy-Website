@@ -1,0 +1,22 @@
+[
+{
+  "model": "orders.order",
+  "pk": 1,
+  "fields": {
+    "cart": 1,
+    "status": "created",
+    "timestamp": "2019-08-05T23:10:18.883Z",
+    "billing": 1
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 2,
+  "fields": {
+    "cart": 2,
+    "status": "created",
+    "timestamp": "2019-08-05T23:34:49.947Z",
+    "billing": 2
+  }
+}
+]

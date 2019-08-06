@@ -1,0 +1,38 @@
+[
+{
+  "model": "main.profile",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "image": "default.jpg",
+    "major": "Applied Sciences",
+    "age": 0,
+    "year_in_school": "Freshman",
+    "note": "write something"
+  }
+},
+{
+  "model": "main.profile",
+  "pk": 2,
+  "fields": {
+    "user": 2,
+    "image": "default.jpg",
+    "major": "Applied Sciences",
+    "age": 0,
+    "year_in_school": "Freshman",
+    "note": "write something"
+  }
+},
+{
+  "model": "main.profile",
+  "pk": 3,
+  "fields": {
+    "user": 3,
+    "image": "default.jpg",
+    "major": "Applied Sciences",
+    "age": 0,
+    "year_in_school": "Freshman",
+    "note": "write something"
+  }
+}
+]

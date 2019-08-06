@@ -1,0 +1,123 @@
+{% extends 'main/nav.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% load static %}
+<head>
+
+  <!-- XDSoft DateTimePicker -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" integrity="sha256-DOS9W6NR+NFe1fUhEE0PGKY/fubbUCnOfTje2JMDw3Y=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js" integrity="sha256-FEqEelWI3WouFOo2VWP/uJfs1y8KJ++FLh2Lbqc8SJk=" crossorigin="anonymous"></script>
+
+</head>
+
+<!-- <div class="container">
+	<div class="row">
+
+	    <div class="col-md-8 col-md-offset-2">
+
+    		<h1>Create My Event</h1>
+
+    		<form action="/create/" method="POST" enctype="multipart/form-data">{% csrf_token %}
+
+    		    <div class="form-group">
+    		        <label for="title">Title <span class="require">*</span></label>
+    		        <input type="text" class="form-control" name="title" required/>
+    		    </div>
+
+                <div class="form-group">
+                    <label for="location">Location</label>
+                     <input type="text" class="form-control" name="location" required/>
+                </div>
+
+                <div class="form-group">
+                    <label for="event_date">Event Date</label>
+                     <input type="datetime-local" class="form-control" name="event_date" required/>
+                </div>
+
+                <div class="form-group">
+                    <label for="event_type">Event Type</label>
+                    <br>
+                    <select name="event_type">
+                        <option value="MOVIE">Movie</option>
+                        <option value="SPORTS">Sports</option>
+                        <option value="GAMES">Games</option>
+                        <option value="FOOD">Food</option>
+                        <option value="TRANSIT">Transit</option>
+                        <option value="MERCH">Merch</option>
+                        <option value="OTHER">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="price">Price (CAD)</label>
+                     <input type="number" step="0.01" class="form-control" name="price" required/>
+                </div>
+
+                <div class="form-group">
+                    <label for="expected_attendants">Expected Attendants</label>
+                     <input type="number" min="1" class="form-control" name="expected_attendants" required/>
+                </div>
+
+                <div class="form-group">
+                    <label for="deadline">Deadline</label>
+                     <input type="datetime-local" class="form-control" name="deadline" required/>
+                </div>
+
+    		    <div class="form-group">
+    		        <label for="description">Description</label>
+    		        <textarea rows="5" class="form-control" name="description" required></textarea>
+    		    </div>
+
+    		    <div class="form-group">
+    		        <p><span class="require">*</span> - required fields</p>
+    		    </div>
+
+
+                <div class="form-group">
+                    <label for="image" >Events Image <span class="require">*</span></label>
+                    <input type="file" name="image" accept="image/*" >
+                </div>
+
+
+    		    <div class="form-group" action="/addNew/" method="post">{% csrf_token %}
+    		        <button type="submit" class="btn btn-primary">
+    		            Create
+    		        </button>
+    		    </div>
+
+    		</form>
+		</div>
+ -->
+    <br>
+    <div class="container">
+       <div class="row">
+         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+           <div class="card card-signin my-5">
+             <div class="card-body">
+               <h5 class="card-title text-center">Create An Event</h5>
+               <form method="POST" enctype="multipart/form-data">
+                 <div class="form-label-group">
+                   {% csrf_token %}
+                   {{e_form|crispy}}
+                 </div>
+                 <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Created</button>
+               </form>
+
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+
+{% endblock %}
+{% block javascript %}
+  $(function () {
+    $("#id_event_date").datetimepicker({
+      format: 'd/m/Y H:i',
+    });
+        $("#id_deadline").datetimepicker({
+      format: 'd/m/Y H:i',
+    });
+  });
+{% endblock %}
+

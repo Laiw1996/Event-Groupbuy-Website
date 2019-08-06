@@ -1,0 +1,113 @@
+{% extends 'main/nav.html' %}
+{% block content %}
+
+<div class="px-3 px-lg-0">
+  <div class="pb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
+
+          <!-- Shopping cart table -->
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="p-2 px-3 text-uppercase">Events</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="py-2 text-uppercase">Price</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="py-2 text-uppercase"></div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="py-2 text-uppercase">Remove</div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+
+              	{% for event in events %}
+	              	<tr>
+	                  <th scope="row" class="border-0">
+	                    <div class="p-2">
+	                      <img src="{{ event.image_event.url }}" alt="" width="70" class="img-fluid rounded shadow-sm">
+	                      <div class="ml-3 d-inline-block align-middle">
+	                        <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">{{event.title}}</a></h5><span class="text-muted font-weight-normal font-italic d-block">Category: {{event.event_type}}</span>
+	                      </div>
+	                    </div>
+	                  </th>
+
+	                  <td class="border-0 align-middle"><strong>${{event.price}}</strong></td>
+
+	                  <td class="border-0 align-middle">
+	                  	<td class="align-middle"><a href="/carts/remove/{{event.id}}" class="text-dark">        <i class="fas fa-trash"></i></a>
+                    	</td>
+	                  </td>
+	                </tr>
+              	{% endfor %}
+
+
+              </tbody>
+            </table>
+          </div>
+          <!-- End -->
+        </div>
+      </div>
+
+      <div class="row py-5 p-4 bg-white rounded shadow-sm">
+        <div class="col-lg-6">
+          <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Our Policy</div>
+          <div class="p-4">
+            <p class="font-italic mb-4">There are current no refund</p>
+            <p class="font-italic mb-4">User privacy data are protected</p>
+            <p class="font-italic mb-4">Same user cannot enter same event</p>
+            <p class="font-italic mb-4">Please Keep checking event status</p>
+            <p class="font-italic mb-4">It may cancel if there are not enough participants</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary </div>
+          <div class="p-4">
+            <p class="font-italic mb-4">Tax and additional costs are calculated based on values you have entered.</p>
+            <ul class="list-unstyled mb-4">
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>${{ current_cart.total }}</strong></li>
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>${{cartTax}}</strong></li>
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
+                <h5 class="font-weight-bold">${{ cartTotal_withTax }}</h5>
+              </li>
+            </ul>
+            {% if user.is_authenticated %}
+                <a href="/carts/checkout" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
+                {% else %}
+                <a href="/login/" class="btn btn-light rounded-pill py-2 btn-block">Please Login First</a>
+            {% endif %}
+            
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

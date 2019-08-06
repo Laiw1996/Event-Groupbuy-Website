@@ -1,0 +1,64 @@
+{% extends 'main/layout.html' %}
+{% block content %}
+<div class="container">
+
+    <div class="row">
+      <div class="col-md-8 mb-3">
+        <h2>What We Do</h2>
+        <hr>
+        <p>We provide students opportunity to host and join events</p>
+
+		<dl>
+			<dt style="color:navy;">Benefit for event provider:</dt>
+
+			<dd><i class="far fa-lightbulb"></i> Post your awesome event ideas first!</dd>
+			<dd><i class="fas fa-user-check"></i> See how many participants you can actually get</dd>
+			<dd><i class="fas fa-people-carry"></i> Just cancel the event if you couldn't recruit enough participants</dd>
+			<dd><i class="fas fa-link"></i> Your event participants can share your event through social media to help the recruitment process</dd>
+			<br />
+			<dt style="color:navy;">Benefit for event participants:</dt>
+			<dd><i class="far fa-laugh-squint"></i> Able to join events easily</dd>
+			<dd><i class="fas fa-tags"></i> Enjoy discount from event providers</dd>
+			<dd><i class="fas fa-piggy-bank"></i> Ask admin to get your money back if the event provider couldn't recruit enough participant by the deadline</dd>
+		</dl>
+
+ <a class="btn btn-primary btn-lg btn-color" href="/events">Join A Event&raquo;</a>
+ <a class="btn btn-primary btn-lg btn-color" href="/post">Creat A New Event&raquo;</a>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h2>Group Information</h2>
+        <hr>
+				<strong>Group 3 -- CMPT 470</strong><br>
+				<strong>Team Memebrs:</strong><br>
+				<p>Zhicheng Xu 301297338</p>
+				<p>Rong Li 301308325</p>
+				<p>Lai Wei 301297816</p>
+
+
+      </div>
+    </div>
+
+    <h3>You May Like: </h3>
+		<div class="row">
+			<!--  event1-->
+			{% for event in trendy_list %}
+			<div class="col-md-4 mb-3">
+				<div class="card h-100">
+					<img class="card-img-top" src="{{ event.image_event.url }}" alt="User avatar" style="width:320px; height: 180px">
+				<div class="card-body">
+					<h4 class="card-title">{{event.title}}</h4>
+
+					<p class="card-text text-truncate">{{event.description}}</p>
+				</div>
+			<div class="card-footer">
+				<a href="/events/event_details/{{event.id}}" class="btn btn-primary btn-color" id="event_title">Explore</a>
+			</div>
+			</div>
+			</div>
+
+			{% endfor %}
+
+
+		</div>
+
+{% endblock %}

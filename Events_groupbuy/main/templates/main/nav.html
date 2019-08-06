@@ -1,0 +1,199 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-grayscale/5.0.8/css/grayscale.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+   <!-- XDSoft DateTimePicker -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" integrity="sha256-DOS9W6NR+NFe1fUhEE0PGKY/fubbUCnOfTje2JMDw3Y=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js" integrity="sha256-FEqEelWI3WouFOo2VWP/uJfs1y8KJ++FLh2Lbqc8SJk=" crossorigin="anonymous"></script>
+
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+  <title>Events_Groupbuy</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
+<!--   <style media="screen">
+    .lic {
+    border-bottom: 1px solid #DCDCDC;
+}
+
+.lic > .ulc {
+    border-top: 1px solid  #DCDCDC;
+}
+
+.lic > .ulc > .lic:last-child {
+    border: none;
+}
+.valid_error{
+  color: red;
+}
+.avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+});
+{% block css %}
+{% endblock %}
+
+</style>
+ -->
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".nav-link").click(function(){
+            $("#myModal").modal('show');
+        });
+    });
+</script>
+
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top bg-dar " id="nav-scroll"; ">
+  <div  class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+    <a class="navbar-brand" href="/" style="color:#F0E68C;">Events GroupBuy</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home
+                <span class="sr-only">(current)</span>
+              </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/events">Event List</a>
+        </li>
+        
+        </ul>
+            </div>
+
+        {% if user.is_authenticated %}
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+               <ul class="navbar-nav ml-auto">
+
+                <!-- Button HTML (to Trigger Modal) -->
+    <!-- <button type="button" class="btn btn-lg btn-primary" data-toggle="modal">Launch Demo Modal</button> -->
+
+    <!-- Modal HTML -->
+    <div id="myModal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">My Events</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p><a href="/events/joined">Click and see events I joined</a></p>
+                    <p><a href="/events/started">Click and see events I created</a></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="#" data-toggle="modal">My Events</a>
+                </li>
+
+                 <li class="nav-item">
+                   <a class="nav-link" href="/post">Start New Event</a>
+                 </li>
+                 <li class="nav-item">
+                   <a class="nav-link" href="/account/">{{user.username|title}}</a>
+                 </li>
+                 <li class="nav-item">
+                   <a class="nav-link" href="/logout">Log out</a>
+                 </li>
+                 <li class="nav-item">
+                   <a class="nav-link" href="/carts/"><i class="fa fa-shopping-cart"></i></a>
+                 </li>
+
+           </div>
+        {% else %}
+
+<div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+     <ul class="navbar-nav ml-auto">
+         <li class="nav-item">
+             <a class="nav-link" href="/login">Log in</a>
+         </li>
+         <li class="nav-item">
+             <a class="nav-link" href="/register">Sign up</a>
+         </li>
+         <li class="nav-item">
+             <a class="nav-link" href="/carts/"><i class="fa fa-shopping-cart"></i></a>
+         </li>
+     </ul>
+ </div>
+
+        {% endif %}
+
+
+</nav>
+
+<br>
+<br>
+<br>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $(window).scroll(function() {
+    if($(document).scrollTop() > 80) {
+      $('#nav-scroll').addClass('shrink_general');
+    }
+    else {
+    $('#nav-scroll').removeClass('shrink_general');
+    }
+  });
+});
+{% block javascript %}
+{% endblock %}
+</script>
+    {% block content %}
+    {% endblock %}
+
+
+  <style>
+    .lic {
+    border-bottom: 1px solid #DCDCDC;
+}
+
+.lic > .ulc {
+    border-top: 1px solid  #DCDCDC;
+}
+
+.lic > .ulc > .lic:last-child {
+    border: none;
+}
+.valid_error{
+  color: red;
+}
+.avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+});
+{% block style %}
+{% endblock %}
+
+</style>
+

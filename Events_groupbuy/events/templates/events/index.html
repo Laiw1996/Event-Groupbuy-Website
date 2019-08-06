@@ -1,0 +1,130 @@
+{% extends 'main/nav.html' %}
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" title="Q1" href="{% static 'events/eventList_style.css' %}" />
+
+<!-- {% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }}">
+{{ message }}
+</div>
+{% endfor %}
+{% endif %} -->
+
+<style>
+
+.filter {
+  position: absolute;
+  right: 256px;
+}
+
+.sort {
+  position: absolute;
+  right: 112px;
+}
+
+/*  .lic {
+    border-bottom: 1px solid #DCDCDC;
+}
+
+.lic > .ulc {
+    border-top: 1px solid  #DCDCDC;
+}
+
+.lic > .ulc > .lic:last-child {
+    border: none;
+}
+*/
+
+
+/*.img {
+    position: relative;
+    float: left;
+    width:  300px;
+    height: 300px;
+}*/
+</style>
+
+
+
+<ul id="menu">
+
+  <div>
+{% if filtering == 1 %}
+<p>Events are filtered by: <strong>{{type}}</strong></p>
+{% elif sorting == 1 %}
+<p>Events are sorted by: <strong>{{type}}</strong></p>
+{% else %}
+{% endif %}
+
+{% if count == 0 %}
+<h2>Sorry! No Such Event :(</h2>
+<p>Please try other event types!</p>
+<a class="btn btn-primary btn-lg btn-color" href="/events">GO BACK</a>
+{% else %}
+</div>
+
+  <h2>All Events: </h2>
+
+  <!-- Example single danger button -->
+<div class="filter" >
+  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Filter by
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="/events">All</a>
+    <a class="dropdown-item" href="/events/merch">Merch</a>
+    <a class="dropdown-item" href="/events/movie">Movie</a>
+    <a class="dropdown-item" href="/events/game">Game</a>
+    <a class="dropdown-item" href="/events/food">Food</a>
+    <a class="dropdown-item" href="/events/sport">Sport</a>
+    <a class="dropdown-item" href="/events/transit">Transit</a>
+    <a class="dropdown-item" href="/events/other">Other</a>      
+    
+    <!-- <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">Separated link</a> -->
+  </div>
+</div>
+
+<div class="sort" >
+  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Sort by
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="/events/sortbydate">Most recently</a>
+    <a class="dropdown-item" href="/events/savethemost">Save the most</a>
+    <a class="dropdown-item" href="/events/lowtohigh">Price &uarr;</a>
+    <a class="dropdown-item" href="/events/hightolow">Price &darr;</a>
+    
+    <!-- <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">Separated link</a> -->
+  </div>
+</div>
+	
+	{% for event in AllEvents %}
+	<li class="media lic ulc" id="individualEvents">
+		<a href="/events/event_details/{{event.id}}">
+			<!-- <img src="{% static 'events/default_image.jpg' %}" class="rounded img-fluid" alt="..." width="307" height="240"> -->
+			<img src="{{ event.image_event.url }}" alt="User avatar" style="width:320px; height: 180px">
+		</a>
+		<div class="media-body" id = "events_details">
+	  		<h4 class="mt-0 mb-1"><a href="/events/event_details/{{event.id}}" id="event_title">{{event.title}}</a></h4>
+	  		
+        <h6 id="essentialDetails">Location: {{event.location}}</h6>
+	  		
+        <h6 id="essentialDetails">Time: {{event.event_date}}</h6>
+	  		<h6 id="essentialDetails">CAD$ {{event.price}}</h6>
+        <a href="#" class="badge badge-info">{{event.event_type}}</a>
+        <br>
+	  		<span class="badge badge-success">Current: {{event.current_attendants}}</span>
+	  		<span class="badge badge-secondary">Expected: {{event.expected_attendants}}</span>
+	  		<!-- <p>{{event.description}}</p> -->
+	  		
+		</div>
+	</li>
+	{% endfor %}
+</ul>
+{% endif %}
+
+{% endblock %}

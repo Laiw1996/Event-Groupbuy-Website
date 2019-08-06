@@ -1,0 +1,97 @@
+{% extends 'main/layout.html' %}
+{% load crispy_forms_tags %}
+{%block title %}
+<h1 class="display-3">Account Information</h1>
+{%endblock%}
+{% block content %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }}">
+{{ message }}
+</div>
+{% endfor %}
+{% endif %}
+
+<!-- <div class="card" >
+  <img src="{{ user.profile.image.url }}" alt="User avatar" style="width:100%">
+  <h1>{{user.username}}</h1>
+  <p class="title">{{user.first_name}} {{user.last_name}}</p>
+  <p>Add major here</p>
+  <p><a class="ml-2" href="/edit" id='ref'>Click to Edit</a></p>
+</div> -->
+
+<div class="row">
+  <!-- user-->
+  <div class="col-3 user_card">
+      <img src="{{ user.profile.image.url }}" alt="User avatar" style="width:100%">
+      <h1>{{user.username}}</h1>
+      <p class="title">{{user.first_name}} {{user.last_name}}</p>
+      <p>{{user.profile.year_in_school}}</p>
+  <div class="card-footer">
+    <p><a class="ml-2" href="/edit" id='ref'>Click to Edit</a></p>
+  </div>
+
+  </div>
+  <!-- event2 -->
+  <div class="col-4 .col-md-4">
+    <h1>Basic Information</h1>
+    <p><strong>Name: </strong><span>{{user.first_name}}  {{user.last_name}}</span></p>
+    <p><strong>Currently Enrolled In: </strong><span>{{user.profile.major}}</span></p>
+    <p><strong>Year In SFU: </strong><span>{{user.profile.year_in_school}}</span></p>
+    <p><strong>My Age: </strong><span>{{user.profile.age}}</span></p>
+  </div>
+  <div class="col-md-5">
+    <h1>My Notes</h1>
+    <div class="">
+      {{user.profile.note}}
+    </div>
+</div>
+<!-- style css -->
+<style media="screen">
+
+  .user_card {
+  max-width: 400px;
+  text-align: center;
+
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+#ref {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+button:hover, a:hover {
+  opacity: 0.7;
+}
+.profile-content {
+  padding: 20px;
+  background: #fff;
+  min-height: 460px;
+}
+
+</style>
+<!-- <script type="text/javascript">
+  $('#edit').on('click',function(){
+    $("form").toggle();
+  });
+</script> -->
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'main/nav.html' %}
+{% block content %}
+
+<div class="px-3 px-lg-0">
+  <div class="pb-5">
+    <div class="container">
+      <div class="row px-4 py-3 bg-white rounded shadow-sm">
+      	<h1>Order Review</h1>
+      </div>
+      <div class="row py-5 p-4 bg-white rounded shadow-sm">
+        <div class="col-lg-6">
+          <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Billing Address</div>
+          <div class="p-4">
+            <p class="font-italic mb-4">{{ the_order.billing.address_line_1 }}</p>
+            <p class="font-italic mb-4">{{ the_order.billing.city }}</p>
+            <p class="font-italic mb-4">{{ the_order.billing.state }}</p>
+            <p class="font-italic mb-4">{{ the_order.billing.country }}</p>
+            <p class="font-italic mb-4">{{ the_order.billing.postal_code }}</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary </div>
+          <div class="p-4">
+            <p class="font-italic mb-4">Tax and additional costs are calculated based on values you have entered.</p>
+            <ul class="list-unstyled mb-4">
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>${{ the_order.cart.total }}</strong></li>
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>${{orderTax}}</strong></li>
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
+                <h5 class="font-weight-bold">${{ orderTotal_withTax }}</h5>
+              </li>
+            </ul>
+
+
+            <form action="/orders/pay" method="post">
+      				{% csrf_token %}
+      				<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      				    data-key="{{ key }}"
+      				    data-description="A Django Charge"
+      				    data-amount="{{orderTotal_forStripe}}"
+      				    data-locale="auto">
+      				</script>
+      				<script>
+      		        // Hide default stripe button, be careful there if you
+      		        // have more than 1 button of that class
+      		        document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
+      			    </script>
+      			    <button type="submit" class="btn btn-success rounded-pill py-2 btn-block">Click to Pay</button>
+      			</form>
+
+
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,157 @@
+{% extends 'main/nav.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+.fa {
+  padding: 10px;
+  font-size: 20px;
+  width: 40px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 30%;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+
+/*.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+.fa-pinterest {
+  background: #cb2027;
+  color: white;
+}
+
+.fa-snapchat-ghost {
+  background: #fffc00;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}*/
+
+.fa-reddit {
+  background: #ff5700;
+  color: white;
+}
+
+.fa-rss {
+  background: #ff6600;
+  color: white;
+}
+</style>
+
+<link rel="stylesheet" title="Q1" href="{% static 'events/eventDetail_style.css' %}" />
+<div id="main" class="container">
+  <div class="row">
+    <div class="col-md-8">
+      {% if eventDetail.image_event %}
+          <img src="{{ eventDetail.image_event.url }}" alt="User avatar" style="width:100%">
+          {% else %}
+       <img src="{% static 'events/default_image.jpg' %}" class="rounded img-fluid" alt="..." width="750" height="500">
+      {% endif %}
+      </div>
+
+      <div class="col-md-4">
+        <h3>{{eventDetail.title}}</h3>
+        <p style="color:deepskyblue;">{{eventDetail.location}}</p>
+      <div id="map-container-google-1" class="z-depth-1-half map-container">
+          <iframe src="https://maps.google.com/maps?q=vancouver&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div>
+
+      <pre>
+
+      </pre>
+      <h5>Share this event with:</h5>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.youtube.com/" class="fa fa-facebook"></a>
+      <a href="http://www.twitter.com/share?url=https://www.youtube.com/" class="fa fa-twitter"></a> 
+      <a href="https://www.linkedin.com/shareArticle?mini=True&url=https://www.youtube.com/&title=share%20this%20event.&summary=share%20this%20event.&source=https://www.youtube.com/" class="fa fa-linkedin"></a>
+      <a href="http://www.reddit.com/submit?url=https://www.youtube.com/&title=share%20this%20event." class="fa fa-reddit"></a> 
+      <pre>
+      </pre>
+      {% if eventDetail.current_attendants < eventDetail.expected_attendants %}
+      {% include 'events/add_to_cart.html' with the_event=eventDetail %}
+      {% else %}
+      <button type="button" class="btn btn-secondary" id="paybutton" disabled>Sold Out</button>
+      {% endif %}
+      </div>
+  </div>
+
+
+<div class="row">
+
+  <div class="col-md-8">
+        <h3>
+          <span class="badge badge-info">Current: {{eventDetail.current_attendants}}</span>
+          <span class="badge badge-info">Expected: {{eventDetail.expected_attendants}}</span>
+        </h3>
+  </div>
+
+  <div class="col-md-8">
+        <h2>Current Participants</h2>
+          {% for u in cur %}
+          <a href="/show/{{u.id}}">
+           <img  src="{{ u.profile.image.url }}" alt="User avatar" class="avatar">
+           </a>
+          {% endfor %}
+
+          <span> </span><span><i class="far fa-hand-point-left fa-lg"> </i></i>Click Icon to see profiles</span>
+  </div>
+ 
+  <div class="col-md-4">
+      {% if user.is_authenticated %}
+        {% if user == eventDetail.owner %}
+          <p><a class="ml-2" href="/editpost/{{eventDetail.id}}" id='ref'>Edit Your Post</a ></p >
+        {% endif %}
+      {% endif %}
+  </div>
+
+
+
+  <div class="col-md-8">
+    <br />
+      <h2>Description: </h2>
+      <h3 id="essentialDetail">Activity Time: {{eventDetail.event_date}}</h3>
+        <h3 id="essentialDetail">Price: CAD <strike>{{eventDetail.price}}</strike> 
+        {{discount_price}} ({{eventDetail.discount_rate}}%OFF)</h3>
+      <p>{{eventDetail.description}}</p>
+  </div>
+
+</div>
+
+
+
+
+{% endblock %}
+
+{% block css %}
+<style>
+.avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+</style>
+{% endblock %}

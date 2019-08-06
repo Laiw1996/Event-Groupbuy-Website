@@ -1,0 +1,28 @@
+[
+{
+  "model": "billing.billingprofile",
+  "pk": 1,
+  "fields": {
+    "email": "pikachu@sfu.ca",
+    "address_line_1": "SFU",
+    "address_line_2": null,
+    "city": "BURNABY",
+    "country": "Cananda",
+    "state": "British Columbia",
+    "postal_code": "V5A 1S6"
+  }
+},
+{
+  "model": "billing.billingprofile",
+  "pk": 2,
+  "fields": {
+    "email": "laiw@sfu.ca",
+    "address_line_1": "8888 University Drive",
+    "address_line_2": null,
+    "city": "BURNABY",
+    "country": "Canada",
+    "state": "British Columbia",
+    "postal_code": "V5B 2A8"
+  }
+}
+]

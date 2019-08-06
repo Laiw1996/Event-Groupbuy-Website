@@ -1,0 +1,115 @@
+[
+{
+  "model": "events.events",
+  "pk": 1,
+  "fields": {
+    "title": "The 5K Foam Fest",
+    "description": "The 5K Foam Fest is a one of kind Obstacle Course based Fun Run. Join us for over 22 obstacles including the world's largest inflatable waterslide, mud pits and 2.5 MILLION cubic feet of foam! Rock out all day to 12,000 watts of awesome (family friendly) music, enjoy a FREE kids zone for kids 7 and under, taste delicious food, shop from local vendors and celebrate your success in our well-stocked beer garden. With a variety of obstacles and a ton of foam, the 5K Foam Fest run is an exciting challenge for experienced and beginner runners alike.. Walk it, run it, charge it, fun it; this course should be enjoyed at your own pace and all obstacles are optional!",
+    "location": "Cloverdale Rodeo & Exhibition Association  6050 176 Street  Surrey, BC V3S 4E7",
+    "price": 10.0,
+    "event_date": "2019-09-15T04:00:00Z",
+    "image_event": "event_img/e1.jpeg",
+    "event_type": "SPORTS",
+    "poster_image": "",
+    "status": 1,
+    "discount_rate": 10.0,
+    "post_date": "2019-08-05T23:08:35.827Z",
+    "deadline": "2019-09-07T23:00:00Z",
+    "expected_attendants": 30,
+    "current_attendants": 0,
+    "owner": 2,
+    "participators": []
+  }
+},
+{
+  "model": "events.events",
+  "pk": 2,
+  "fields": {
+    "title": "2019 Golf Tournament",
+    "description": "This years' golf tournament will once again be held at the Executive Course at Westwood Plateau in Coquitlam. There are limited spots available so get your foursome or single ticket early. Come play for fun or to win, it's completely up to you. Regardless, you'll have a good time shooting for a hole in one, visiting the two candy holes or at the Burger BBQ dinner afterwards",
+    "location": "Westwood Plateau Executive Course  1630 Parkway Blvd  Coquitlam, BC",
+    "price": 10.0,
+    "event_date": "2019-10-27T01:00:00Z",
+    "image_event": "event_img/e2.jpeg",
+    "event_type": "SPORTS",
+    "poster_image": "",
+    "status": 1,
+    "discount_rate": 10.0,
+    "post_date": "2019-08-05T23:09:34.374Z",
+    "deadline": "2019-09-05T23:00:00Z",
+    "expected_attendants": 2,
+    "current_attendants": 2,
+    "owner": 1,
+    "participators": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "events.events",
+  "pk": 3,
+  "fields": {
+    "title": "Bandito Tour 2019",
+    "description": "Twenty One Pilots have announced a new leg of U.S. \u201cBandito\u201d tour dates. The run of shows is scheduled to begin Oct. 9 in Tampa, Fla. and conclude Nov. 9 in Tulsa, Okla.\r\n\r\nThe band is still riding high off their 2018 critically acclaimed album, Trench, which quickly went gold in the U.S. and has sold over a million copies worldwide. Twenty One Pilots also boast the accolade of having the most-streamed album by any group in history, with Blurryface recently surpassing 3.5 billion streams on Spotify alone.",
+    "location": "Los Angeles, Calif. @ STAPLES Center",
+    "price": 120.0,
+    "event_date": "2019-11-02T02:00:00Z",
+    "image_event": "event_img/e3.jpg",
+    "event_type": "OTHER",
+    "poster_image": "",
+    "status": 1,
+    "discount_rate": 10.0,
+    "post_date": "2019-08-05T23:22:37.808Z",
+    "deadline": "2019-10-11T00:00:00Z",
+    "expected_attendants": 2,
+    "current_attendants": 0,
+    "owner": 2,
+    "participators": []
+  }
+},
+{
+  "model": "events.events",
+  "pk": 4,
+  "fields": {
+    "title": "Uke Great Wave Concert",
+    "description": "The Great Wave off Kanagawa (1830-1833), also known as The Great Wave is a woodblock print by the Japanese artist Hokusai. Copies of the print are in many collections, including the Metropolitan Museum of Art in New York City and The British Museum in London. Featured on the front of Luna's 21\" Great Wave Soprano and 23\" Great Wave Concert, this masterpiece can now be in your own personal ukulele collection!",
+    "location": "Burnaby, BC",
+    "price": 200.0,
+    "event_date": "2019-09-01T00:00:00Z",
+    "image_event": "event_img/e4.jpeg",
+    "event_type": "MERCH",
+    "poster_image": "",
+    "status": 1,
+    "discount_rate": 20.0,
+    "post_date": "2019-08-05T23:28:52.971Z",
+    "deadline": "2019-08-15T23:27:00Z",
+    "expected_attendants": 3,
+    "current_attendants": 0,
+    "owner": 3,
+    "participators": []
+  }
+},
+{
+  "model": "events.events",
+  "pk": 5,
+  "fields": {
+    "title": "Big G Fried Chicken",
+    "description": "BIG G (Large Fried Chicken) \u2013 The Name Says it All. Taiwan Style Giant Fried Chicken Steak!",
+    "location": "Richmond, BC",
+    "price": 20.0,
+    "event_date": "2019-08-26T05:30:00Z",
+    "image_event": "event_img/e5.jpg",
+    "event_type": "FOOD",
+    "poster_image": "",
+    "status": 1,
+    "discount_rate": 15.0,
+    "post_date": "2019-08-05T23:34:29.220Z",
+    "deadline": "2019-08-26T04:00:00Z",
+    "expected_attendants": 4,
+    "current_attendants": 0,
+    "owner": 3,
+    "participators": []
+  }
+}
+]
